@@ -1,3 +1,5 @@
+import java.io.PrintWriter;
+
 class ArrayOperations {
     public static void printTheThirdRow(int[][] twoDimArray) {
         for (int c = 0; c < 3; c++) {
@@ -8,7 +10,7 @@ class ArrayOperations {
                     System.out.print(row + " ");
                 }
             }
-            System.out.println("");
+            System.out.println();
         }
     }
 }
