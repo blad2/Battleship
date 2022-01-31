@@ -1,52 +1,37 @@
+
 class Move {
+
     public static void moveRobot(Robot robot, int toX, int toY) {
-        Direction currentDirection = robot.getDirection();
-        // if toX is < 0 and direction is  left, move robot.stepForward() otherwise turn left until direction is left
-        if (toX < robot.getX() && currentDirection.equals(Direction.LEFT)) {
-            while (toX <= robot.getX()) {
+        if (robot.getX() > toX) { // position 0, target -10
+            findDirection(robot, Direction.LEFT);
+            while (robot.getX() != toX) {
                 robot.stepForward();
-            }
-        } else {
-            if (currentDirection == Direction.UP) {
-                robot.turnRight();
-            } else {
-                robot.turnLeft();
             }
         }
-        // once direction matches move toX steps (moveForwards).
-        // if toX is > 0 and direction is right, move robot.stepForward() otherwise turn right until direction is right
-        if (toX >= robot.getX() && currentDirection.equals(Direction.RIGHT)) {
-            while (toX > robot.getX()) {
+        if (robot.getX() < toX) { // position -10, tox 0
+            findDirection(robot, Direction.RIGHT);
+            while (robot.getX() < toX) {
                 robot.stepForward();
-            }
-        } else {
-            if (currentDirection == Direction.DOWN) {
-                robot.turnLeft();
-            } else {
-                robot.turnRight();
             }
         }
-        if (toY <= robot.getY() && currentDirection.equals(Direction.DOWN)) {
-            while (toY < robot.getY()) {
+        if (robot.getY() < toY) {
+            findDirection(robot, Direction.UP);
+            while (robot.getY() < toY) {
                 robot.stepForward();
-            }
-        } else {
-            if (currentDirection.equals(Direction.RIGHT)) {
-                robot.turnRight();
-            } else {
-                robot.turnLeft();
             }
         }
-        if (toY > robot.getY() && currentDirection.equals(Direction.UP)) {
-            while (toY >= robot.getY()) {
+        if (robot.getY() > toY) {
+            findDirection(robot, Direction.DOWN);
+            while (robot.getY() > toY) {
                 robot.stepForward();
             }
-        } else {
-            if (currentDirection.equals(Direction.RIGHT)) {
-                robot.turnLeft();
-            } else {
-                robot.turnRight();
-            }
+        }
+
+    }
+
+    public static void findDirection(Robot robot, Direction dir) {
+        while (robot.getDirection() != dir) {
+            robot.turnRight();
         }
     }
 }
