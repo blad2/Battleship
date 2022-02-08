@@ -7,7 +7,7 @@ public class Main {
         int b = scanner.nextInt();
         int n = scanner.nextInt();
         int k = scanner.nextInt();
-        // find the seed between a and b (inclusive), with n random number from 0 to k (exclusive)
+
         Map<Integer, Integer> seedAndInt = new TreeMap<>();
         Random random = new Random();
         for (int i = a; i <= b; i++) {
@@ -30,7 +30,5 @@ public class Main {
         }
         System.out.println(seed);
         System.out.println(min);
-        // from a to b each iteration need to have n random numbers, and I should store the highest
-        // get the minimum value from those random and the seed producing it.
     }
 }
