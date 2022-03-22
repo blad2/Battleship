@@ -8,7 +8,8 @@ public class Main {
         letterList.add(new GreekLetter("Gamma",  3));
         letterList.add(new GreekLetter("Omega", 24));
         letterList.add(new GreekLetter("Alpha",  1));
-    }
+        letterList.forEach(System.out::println);
+}
 
     static class GreekLetter {
 
